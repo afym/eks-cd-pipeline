@@ -1,4 +1,5 @@
 .gitconfig
+mysql-data
 ci.sh
 .m2
 .oracle_jre_usage

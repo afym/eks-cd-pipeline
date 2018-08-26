@@ -5,3 +5,12 @@ services:
     image: rauccapuclla/devops-docker
     ports:
       - 8080:8080
+    mysql:
+      image: mysql:5.7
+      ports:
+      - "3306:3306"
+      restart: always
+      volumes:
+      - ./mysql-data:/var/lib/mysql
+      environment:
+        MYSQL_ROOT_PASSWORD: password
