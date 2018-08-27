@@ -6,5 +6,11 @@ pipeline {
                 sh 'mvn clean package'
             }
         }
+
+        stage('Build Image'){
+            steps {
+                sh 'docker build -t springbootdevops .'
+             }
+        }
     }
 }
