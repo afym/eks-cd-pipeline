@@ -1,16 +1,28 @@
 pipeline {
     agent any
     stages{
-        stage('Build'){
+        stage('Test') {
             steps {
-                sh 'mvn clean package'
-            }
-            post {
-                success {
-                    echo 'Now Archiving...'
-                    archiveArtifacts artifacts: '**/target/*.war'
-                }
+                sh "docker-compose -f docker-test.yml up"
             }
         }
-    }
+        stage('Sonar') {
+            steps {
+                sh "docker-compose -f docker-sonar.yml up"
+            }
+        }
+        stage('Build') {
+            steps {
+                sh "mvn clean package"
+            }
+        }
+        stage('Build') {
+            steps {
+                sh "mvn clean package"
+            }
+        }
+
+    # mvn liquibase:diff
+    # docker tag 1.0 angelfym/springoboot
+    # docker push angelfym/springoboot
 }

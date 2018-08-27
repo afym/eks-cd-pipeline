@@ -1,0 +1,9 @@
+version: "2"
+services:
+  application:
+    image: maven:3.5.0-jdk-8-alpine
+    container_name: springboot_test
+    working_dir: /usr/library/
+    volumes:
+    - ./:/usr/library
+    command: sh -c "mvn test"

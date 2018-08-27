@@ -1,5 +1,6 @@
 package devops;
 
+import infrastructure.TrackerRepository;
 import logger.TrackerEntity;
 import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -13,6 +14,7 @@ import javax.servlet.http.HttpServletRequest;
 public class TrackerController {
     private static final String TRACKER = "Your activity was tracked : ";
     private TrackerEntity trackerEntity = new TrackerEntity();
+    private TrackerRepository trackerRepository;
 
     @RequestMapping("/tracker")
     public String index(){
@@ -21,6 +23,7 @@ public class TrackerController {
         if (attributes != null) {
             HttpServletRequest request = attributes.getRequest();
             this.trackerEntity = new TrackerEntity(request);
+            // trackerRepository = new TrackerRepository();
             return TRACKER + this.trackerEntity.toString();
         }
 

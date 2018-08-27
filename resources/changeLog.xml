@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog>
+    <changeSet author="Angel" id="01">
+    <createTable tableName="tracker">
+        <column autoIncrement="true" name="id" type="BIGINT">
+            <constraints primaryKey="true"/>
+        </column>
+        <column name="ip" type="VARCHAR(20)"/>
+        <column name="date" type="VARCHAR(20)"/>
+        <column name="hour" type="VARCHAR(20)"/>
+    </createTable>
+    </changeSet>
+</databaseChangeLog>
