@@ -54,7 +54,7 @@
     <profiles>
 
         <profile>
-            <id>local</id>
+            <id>liquibase</id>
             <activation>
                 <activeByDefault>true</activeByDefault>
             </activation>
